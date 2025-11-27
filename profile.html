@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand | My Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- Top Header ---------- */
+    .top-header {
+      background-color: #0a74da;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      font-size: 13px;
+    }
+
+    .top-left, .top-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-box {
+      background-color: #e6f2ff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box i {
+      color: #0a74da;
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a74da;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 40px;
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      height: 44px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #0a74da;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 14px;
+      height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .search-category {
+      background-color: #f5f5f5;
+      border: 2px solid #0a74da;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      padding: 10px 15px;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      min-width: 140px;
+      height: 100%;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .search-bar button {
+      background-color: #0a74da;
+      color: white;
+      border: 2px solid #0a74da;
+      border-left: none;
+      padding: 10px 25px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #0a74da;
+      transition: all 0.3s;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .icon-item:hover {
+      color: #0056b3;
+      background-color: #f0f7ff;
+    }
+
+    .icon-item.active {
+      color: #0056b3;
+      background-color: #f0f7ff;
+    }
+
+    .icon-item i {
+      font-size: 24px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .icon-item span {
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ---------- Menu Bar ---------- */
+    .menu-bar {
+      background-color: #e9f2ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      font-weight: 500;
+      color: #0a74da;
+      font-size: 14px;
+    }
+
+    .menu-left {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .menu-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .menu-bar div,
+    .menu-bar a {
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .menu-bar div:hover,
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Profile Container */
+    .profile-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 40px;
+    }
+
+    .profile-header {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0a74da, #0056b3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .profile-info h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .profile-info p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 16px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .number {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a74da;
+      display: block;
+    }
+
+    .stat-item .label {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+    }
+
+    .profile-sidebar {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-menu a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: #6b7280;
+      transition: all 0.3s;
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+      background: #f0f7ff;
+      color: #0a74da;
+    }
+
+    .sidebar-menu i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .profile-main {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f5f5f5;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #0a74da;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background-color: #0a74da;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: white;
+      color: #0a74da;
+      border: 2px solid #0a74da;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f0f7ff;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="getted_started.html" class="logo">
+      <div class="logo-box">
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <span class="brand-name">Brand</span>
+    </a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands, and more...">
+      <select class="search-category">
+        <option>All category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home & Garden</option>
+        <option>Sports & Outdoors</option>
+        <option>Beauty & Health</option>
+        <option>Toys & Games</option>
+        <option>Automotive</option>
+        <option>Books & Media</option>
+        <option>Food & Beverages</option>
+        <option>Industrial & Scientific</option>
+      </select>
+      <button><i class="fas fa-search"></i> Search</button>
+    </div>
+    <div class="navbar-right">
+      <a href="profile.html" class="icon-item active">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-comments"></i>
+        <span>Messages</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-list"></i>
+        <span>Orders</span>
+      </a>
+      <a href="my_cart.html" class="icon-item">
+        <i class="fas fa-shopping-cart"></i>
+        <span>My cart</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <div class="menu-left">
+      <a href="catalog.html">All category</a>
+      <div>Hot offers</div>
+      <div>Gift boxes</div>
+      <div>Projects</div>
+      <div>Menu item</div>
+      <div class="help-item">Help</div>
+    </div>
+    <div class="menu-right">
+      <span>English, USD <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
+      <span>Ship to</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" class="flag" alt="Germany Flag">
+      <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </div>
+  </div>
+
+  <!-- Profile Container -->
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-avatar">JD</div>
+      <div class="profile-info">
+        <h1>John Doe</h1>
+        <p>john.doe@example.com</p>
+        <p>+1 234 567 8900</p>
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="number">12</span>
+            <span class="label">Orders</span>
+          </div>
+          <div class="stat-item">
+            <span class="number">5</span>
+            <span class="label">Wishlist</span>
+          </div>
+          <div class="stat-item">
+            <span class="number">8</span>
+            <span class="label">Reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-sidebar">
+        <ul class="sidebar-menu">
+          <li><a href="#" class="active"><i class="fas fa-user"></i> Personal Information</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Addresses</a></li>
+          <li><a href="#"><i class="fas fa-credit-card"></i> Payment Methods</a></li>
+          <li><a href="#"><i class="fas fa-shopping-bag"></i> My Orders</a></li>
+          <li><a href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
+          <li><a href="#"><i class="fas fa-star"></i> Reviews</a></li>
+          <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+          <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </div>
+
+      <div class="profile-main">
+        <h2 class="section-title">Personal Information</h2>
+        <form id="profileForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" value="John" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" value="Doe" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" value="john.doe@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" value="+1 234 567 8900" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" id="dateOfBirth" value="1990-01-15">
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" placeholder="Tell us about yourself...">Passionate shopper and tech enthusiast.</textarea>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn-primary">Save Changes</button>
+            <button type="button" class="btn-secondary" onclick="window.location.href='login.html'">Logout</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Profile updated successfully!');
+    });
+  </script>
+</body>
+</html>
+

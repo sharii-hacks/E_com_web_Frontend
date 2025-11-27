@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand | E-Commerce</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* ---------- Top Header ---------- */
+    .top-header {
+      background-color: #0a74da;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      font-size: 13px;
+    }
+
+    .top-left, .top-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-box {
+      background-color: #e6f2ff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box i {
+      color: #0a74da;
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a74da;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 40px;
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      height: 44px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #0a74da;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 14px;
+      height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .search-category {
+      background-color: #f5f5f5;
+      border: 2px solid #0a74da;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      padding: 10px 15px;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      min-width: 140px;
+      height: 100%;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .search-bar button {
+      background-color: #0a74da;
+      color: white;
+      border: 2px solid #0a74da;
+      border-left: none;
+      padding: 10px 25px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #0a74da;
+      transition: all 0.3s;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .icon-item:hover {
+      color: #0056b3;
+      background-color: #f0f7ff;
+    }
+
+    .icon-item i {
+      font-size: 24px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .icon-item span {
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ---------- Menu Bar ---------- */
+    .menu-bar {
+      background-color: #e9f2ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      font-weight: 500;
+      color: #0a74da;
+      font-size: 14px;
+    }
+
+    .menu-left {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .menu-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .menu-bar div,
+    .menu-bar a {
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .menu-bar div:hover,
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-bar .help-item::after {
+      content: ' ▼';
+      font-size: 10px;
+    }
+
+    .menu-bar .badge {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    /* ---------- Main Content Layout ---------- */
+    .main-content {
+      display: flex;
+      gap: 20px;
+      padding: 20px 40px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* Left Sidebar - Categories */
+    .categories-sidebar {
+      width: 240px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    .categories-header {
+      padding: 0 20px 15px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      border-bottom: 2px solid #f5f5f5;
+      margin-bottom: 10px;
+    }
+
+    .category-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      transition: all 0.3s;
+      border-left: 3px solid transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .category-item:hover {
+      background-color: #f5f5f5;
+      color: #0a74da;
+    }
+
+    .category-item.active {
+      background-color: #0a74da;
+      color: white;
+      border-left: 3px solid #0a74da;
+      font-weight: 600;
+    }
+
+    .category-item.active .category-arrow {
+      color: white;
+    }
+
+    .category-arrow {
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* Center Content */
+    .center-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .hero-section {
+      display: flex;
+      gap: 20px;
+    }
+
+    .promo-banner {
+      flex: 1;
+      background: linear-gradient(135deg, #d2f5f2 0%, #9fe3e8 100%);
+      border-radius: 16px;
+      padding: 35px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .promo-text {
+      max-width: 50%;
+      z-index: 1;
+    }
+
+    .promo-text span {
+      display: inline-block;
+      background: rgba(255,255,255,0.6);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0a3c69;
+      margin-bottom: 12px;
+    }
+
+    .promo-text h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: #0a2f4f;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .promo-text p {
+      color: #0f3d61;
+      margin-bottom: 20px;
+    }
+
+    .promo-text button {
+      background-color: #0a74da;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .promo-text button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(10, 116, 218, 0.25);
+    }
+
+    .promo-visual {
+      position: relative;
+      width: 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .promo-visual img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .promo-visual::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      z-index: 0;
+      top: 10px;
+    }
+
+    .promo-phone {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 120px;
+      height: 200px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .promo-phone span {
+      font-weight: 600;
+      color: #0a2f4f;
+    }
+
+    .promo-phone small {
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .hero-side {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .user-card,
+    .coupon-card,
+    .quote-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #edf2f7;
+    }
+
+    .user-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .user-card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .user-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #f97316, #facc15);
+      color: white;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .user-card h4 {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .user-card-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .user-card-actions button {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #0a74da;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #edf2f7;
+      color: #0a2f4f;
+    }
+
+    .coupon-card {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      color: #7c2d12;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .coupon-card span {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .coupon-card button {
+      align-self: flex-start;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #7c2d12;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px dashed #c7d2fe;
+      background: #eef2ff;
+    }
+
+    .quote-card button {
+      align-self: flex-start;
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Deals Section in Center */
+    .center-deals-section {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-top: 5px;
+      font-weight: 400;
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 8px;
+    }
+
+    .timer-box {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .timer-box .number {
+      font-size: 20px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .timer-box .label {
+      font-size: 11px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .deal-cards {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .deal-cards::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .deal-cards::-webkit-scrollbar-thumb {
+      background: #0a74da;
+      border-radius: 3px;
+    }
+
+    .product-card {
+      min-width: 180px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff4444;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #f5f5f5;
+    }
+
+    .product-card h4 {
+      padding: 12px;
+      color: #333;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* Home & Outdoor Section */
+    .home-outdoor-section {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .home-outdoor-content {
+      display: flex;
+      gap: 20px;
+    }
+
+    .home-outdoor-banner {
+      width: 300px;
+      background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+      border-radius: 12px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-outdoor-banner img {
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .home-outdoor-banner h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .home-outdoor-banner button {
+      background-color: white;
+      color: #0a74da;
+      border: 2px solid #0a74da;
+      padding: 12px 30px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      width: fit-content;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .home-outdoor-banner button:hover {
+      background-color: #0a74da;
+      color: white;
+    }
+
+    .home-products-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .home-product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .home-product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .home-product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background: #f5f5f5;
+    }
+
+    .home-product-card h4 {
+      padding: 12px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .home-product-card .price {
+      padding: 0 12px 12px;
+      color: #0a74da;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* Consumer Electronics Section */
+    .electronics-section {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .electronics-banner {
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+      border-radius: 12px;
+      padding: 50px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .electronics-banner h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .electronics-banner button {
+      background-color: white;
+      color: #0a74da;
+      border: 2px solid #0a74da;
+      padding: 12px 30px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .electronics-banner button:hover {
+      background-color: #0a74da;
+      color: white;
+    }
+
+    .electronics-images {
+      display: flex;
+      gap: -20px;
+      position: relative;
+    }
+
+    .electronics-image {
+      width: 120px;
+      height: 120px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-left: -30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .electronics-image:first-child {
+      margin-left: 0;
+      z-index: 3;
+    }
+
+    .electronics-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .electronics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    /* Right Sidebar */
+    .right-sidebar {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .sidebar-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-products {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .sidebar-product-card {
+      display: flex;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .sidebar-product-card:hover {
+      transform: translateX(5px);
+    }
+
+    .sidebar-product-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #f5f5f5;
+    }
+
+    .sidebar-product-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .sidebar-product-info .price {
+      color: #0a74da;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* Supplier Request Banner */
+    .supplier-banner {
+      background: linear-gradient(120deg, #2ba4f2 0%, #0a74da 100%);
+      margin: 40px;
+      border-radius: 24px;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(10, 116, 218, 0.3);
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .supplier-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="40" cy="40" r="2" fill="rgba(255,255,255,0.2)"/></svg>');
+      opacity: 0.4;
+    }
+
+    .supplier-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .supplier-content h2 {
+      font-size: 38px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .supplier-content p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 540px;
+    }
+
+    .floating-avatars {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .avatar-stack {
+      display: flex;
+    }
+
+    .avatar-stack img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.7);
+      margin-left: -12px;
+      background: white;
+      object-fit: cover;
+    }
+
+    .avatar-stack img:first-child {
+      margin-left: 0;
+    }
+
+    .floating-avatars span {
+      color: white;
+      font-weight: 600;
+    }
+
+    .supplier-form {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .supplier-form h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+
+    .supplier-form input,
+    .supplier-form textarea,
+    .supplier-form select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      font-family: inherit;
+      resize: none;
+    }
+
+    .supplier-form textarea {
+      min-height: 90px;
+    }
+
+    .supplier-form input:focus,
+    .supplier-form textarea:focus,
+    .supplier-form select:focus {
+      border-color: #0a74da;
+      box-shadow: 0 0 0 3px rgba(10, 116, 218, 0.1);
+    }
+
+    .quantity-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .supplier-form button {
+      width: 100%;
+      background-color: #0a74da;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .supplier-form button:hover {
+      background-color: #0056b3;
+      transform: translateY(-1px);
+    }
+
+    .secondary-sections {
+      padding: 0 40px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .recommend-section,
+    .services-section,
+    .region-section,
+    .newsletter-section {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+
+    .recommend-section h3,
+    .services-section h3,
+    .region-section h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+
+    .recommended-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .recommended-card {
+      background: #f9fafc;
+      border: 1px solid #eef2f7;
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .recommended-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+      background: white;
+    }
+
+    .recommended-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .recommended-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .recommended-card p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #0a74da;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      min-height: 160px;
+      color: white;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.7));
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .service-overlay h4 {
+      font-size: 18px;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: grid;
+      place-items: center;
+      color: #0a74da;
+      font-size: 18px;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .region-card {
+      padding: 16px;
+      border: 1px solid #eef2f7;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9fafc;
+    }
+
+    .region-card span {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .region-card small {
+      color: #6b7280;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .newsletter-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: #1f2937;
+      color: white;
+    }
+
+    .newsletter-section h3 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .newsletter-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-input input {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: none;
+      min-width: 260px;
+    }
+
+    .newsletter-input button {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      background: #0a74da;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .site-footer {
+      background: white;
+      padding: 60px 40px 30px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-brand h4 {
+      font-size: 24px;
+      color: #0a74da;
+      margin-bottom: 12px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+      flex: 1;
+    }
+
+    .footer-col h5 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .footer-col a:hover {
+      color: #0a74da;
+    }
+
+    .app-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .app-btn {
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .footer-bottom select {
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 6px 10px;
+    }
+
+  </style>
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#" class="logo">
+      <div class="logo-box">
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <span class="brand-name">Brand</span>
+    </a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands, and more...">
+      <select class="search-category">
+        <option>All category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home & Garden</option>
+        <option>Sports & Outdoors</option>
+        <option>Beauty & Health</option>
+        <option>Toys & Games</option>
+        <option>Automotive</option>
+        <option>Books & Media</option>
+        <option>Food & Beverages</option>
+        <option>Industrial & Scientific</option>
+      </select>
+      <button><i class="fas fa-search"></i> Search</button>
+    </div>
+    <div class="navbar-right">
+      <a href="login.html" class="icon-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-comments"></i>
+        <span>Messages</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-list"></i>
+        <span>Orders</span>
+      </a>
+      <a href="my_cart.html" class="icon-item">
+        <i class="fas fa-shopping-cart"></i>
+        <span>My cart</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <div class="menu-left">
+      <a href="catalog.html">All category</a>
+      <div>Hot offers</div>
+      <div>Gift boxes</div>
+      <div>Projects</div>
+      <div>Menu item</div>
+      <div class="help-item">Help</div>
+    </div>
+    <div class="menu-right">
+      <span>English, USD <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
+      <span>Ship to</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" class="flag" alt="Germany Flag">
+      <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Left Sidebar - Categories -->
+    <div class="categories-sidebar">
+      <div class="categories-header">Categories</div>
+      <div class="category-item active">
+        <span>Automobiles</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Electronic</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Fashion</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Home & Garden</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Sports & Outdoors</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Beauty & Health</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Toys & Games</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Automotive</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Books & Media</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Food & Beverages</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>Industrial & Scientific</span>
+        <i class="fas fa-chevron-right category-arrow"></i>
+      </div>
+      <div class="category-item">
+        <span>More categories</span>
+        <i class="fas fa-chevron-down category-arrow"></i>
+      </div>
+    </div>
+
+    <!-- Center Content -->
+    <div class="center-content">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="promo-banner">
+          <div class="promo-text">
+            <span>Latest trending</span>
+            <h2>Electronic items</h2>
+            <p>Discover the most reliable gadgets from verified suppliers worldwide.</p>
+            <button>Learn more</button>
+          </div>
+          <div class="promo-visual">
+            <img src="image/tech/3.jpg" alt="Headphones">
+            <div class="promo-phone">
+              <span>Smart set</span>
+              <small>Starting from $99</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="user-card">
+            <div class="user-card-header">
+              <div class="user-avatar">U</div>
+              <div>
+                <h4>Hi, user</h4>
+                <p>Let’s get started with your first inquiry</p>
+              </div>
+            </div>
+            <div class="user-card-actions">
+              <button class="btn-primary">Join now</button>
+              <button class="btn-secondary">Log in</button>
+            </div>
+          </div>
+          <div class="coupon-card">
+            <span>Get US $10 off</span>
+            <p>on your first order over $199</p>
+            <button>Redeem</button>
+          </div>
+          <div class="quote-card">
+            <h4>Send quotes with industry experts</h4>
+            <p>Work directly with specialists to customize your orders.</p>
+            <button>Send inquiry</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deals Section -->
+      <div class="center-deals-section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Deals and offers</div>
+            <div class="section-subtitle">Hygiene equipments</div>
+          </div>
+          <div class="countdown-timer">
+            <div class="timer-box">
+              <span class="number">04</span>
+              <span class="label">Days</span>
+            </div>
+            <div class="timer-box">
+              <span class="number">13</span>
+              <span class="label">Hour</span>
+            </div>
+            <div class="timer-box">
+              <span class="number">34</span>
+              <span class="label">Min</span>
+            </div>
+            <div class="timer-box">
+              <span class="number">56</span>
+              <span class="label">Sec</span>
+            </div>
+          </div>
+        </div>
+        <div class="deal-cards">
+          <div class="product-card">
+            <div class="discount-badge">-25%</div>
+            <img src="image/tech/8.jpg" alt="Smart watches">
+            <h4>Smart watches</h4>
+          </div>
+          <div class="product-card">
+            <div class="discount-badge">-15%</div>
+            <img src="image/tech/7.jpg" alt="Laptops">
+            <h4>Laptops</h4>
+          </div>
+          <div class="product-card">
+            <div class="discount-badge">-40%</div>
+            <img src="image/tech/6.jpg" alt="GoPro cameras">
+            <h4>GoPro cameras</h4>
+          </div>
+          <div class="product-card">
+            <div class="discount-badge">-25%</div>
+            <img src="image/tech/5.jpg" alt="Headphones">
+            <h4>Headphones</h4>
+          </div>
+          <div class="product-card">
+            <div class="discount-badge">-25%</div>
+            <img src="image/tech/3.jpg" alt="Canon cameras">
+            <h4>Canon camreras</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home & Outdoor Section -->
+      <div class="home-outdoor-section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Home and outdoor</div>
+          </div>
+        </div>
+        <div class="home-outdoor-content">
+          <div class="home-outdoor-banner">
+            <h3>Home and outdoor</h3>
+            <button>Source now</button>
+            <img src="https://img.freepik.com/free-photo/modern-living-room_53876-146196.jpg" alt="Living room">
+          </div>
+          <div class="home-products-grid">
+            <div class="home-product-card">
+              <img src="image/interior/1.jpg" alt="Soft chairs">
+              <h4>Soft chairs</h4>
+              <p class="price">From USD 19</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/interior/2.jpg" alt="Sofa & chair">
+              <h4>Sofa & chair</h4>
+              <p class="price">From USD 19</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/interior/10.jpg" alt="Kitchen mixer">
+              <h4>Kitchen mixer</h4>
+              <p class="price">From USD 100</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/interior/9.jpg" alt="Blenders">
+              <h4>Blenders</h4>
+              <p class="price">From USD 39</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/interior/7.jpg" alt="Kitchen dishes">
+              <h4>Kitchen dishes</h4>
+              <p class="price">From USD 19</p>
+            </div>
+            <div class="home-product-card">
+            <img src="image/interior/6.jpg" alt="Home appliance">
+              <h4>Home appliance</h4>
+              <p class="price">From USD 19</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/tech/8.jpg" alt="Smart watches">
+              <h4>Smart watches</h4>
+              <p class="price">From USD 19</p>
+            </div>
+            <div class="home-product-card">
+              <img src="image/interior/8.jpg" alt="Coffee maker">
+              <h4>Coffee maker</h4>
+              <p class="price">From USD 10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consumer Electronics Section -->
+      <div class="electronics-section">
+        <div class="electronics-banner">
+          <div>
+            <h3>Consumer electronics<br>and gadgets</h3>
+            <button>Source now</button>
+          </div>
+          <div class="electronics-images">
+            <div class="electronics-image">
+              <img src="https://img.freepik.com/free-photo/smartphone-blue-background_53876-144170.jpg" alt="Smartphone">
+            </div>
+            <div class="electronics-image">
+              <img src="https://img.freepik.com/free-photo/smartwatch_53876-96806.jpg" alt="Smartwatch">
+            </div>
+            <div class="electronics-image">
+              <img src="https://img.freepik.com/free-photo/headphones-wireless-digital-device_53876-96807.jpg" alt="Headphones">
+            </div>
+          </div>
+        </div>
+        <div class="electronics-grid">
+          <div class="home-product-card">
+            <img src="image/tech/8.jpg" alt="Smart watches">
+            <h4>Smart watches</h4>
+            <p class="price">From USD 19</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/6.jpg" alt="Cameras">
+            <h4>Cameras</h4>
+            <p class="price">From USD 89</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/5.jpg" alt="Gaming set">
+            <h4>Gaming set</h4>
+            <p class="price">From USD 35</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/7.jpg" alt="Laptops & PC">
+            <h4>Laptops & PC</h4>
+            <p class="price">From USD 340</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/9.jpg" alt="Headphones">
+            <h4>Headphones</h4>
+            <p class="price">From USD 10</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/3.jpg" alt="Smartphones">
+            <h4>Smartphones</h4>
+            <p class="price">From USD 19</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/8.jpg" alt="Smart watches">
+            <h4>Smart watches</h4>
+            <p class="price">From USD 90</p>
+          </div>
+          <div class="home-product-card">
+            <img src="image/tech/10.jpg" alt="Electric kattle">
+            <h4>Electric kattle</h4>
+            <p class="price">From USD 240</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Supplier Request Banner -->
+  <div class="supplier-banner">
+    <div class="supplier-content">
+      <h2>An easy way to send requests to all suppliers</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="floating-avatars">
+        <div class="avatar-stack">
+          <img src="https://i.pravatar.cc/100?img=11" alt="buyer 1">
+          <img src="https://i.pravatar.cc/100?img=15" alt="buyer 2">
+          <img src="https://i.pravatar.cc/100?img=32" alt="buyer 3">
+          <img src="https://i.pravatar.cc/100?img=48" alt="buyer 4">
+        </div>
+        <span>Trusted by over 50k buyers worldwide</span>
+      </div>
+    </div>
+    <div class="supplier-form">
+      <h3>Send quote to suppliers</h3>
+      <input type="text" placeholder="What item do you need?">
+      <textarea placeholder="Type more details"></textarea>
+      <div class="quantity-row">
+        <input type="number" placeholder="Quantity">
+        <select>
+          <option>Pcs</option>
+          <option>Boxes</option>
+          <option>Kg</option>
+          <option>Sets</option>
+        </select>
+      </div>
+      <button>Send inquiry</button>
+    </div>
+  </div>
+
+  <div class="secondary-sections">
+    <section class="recommend-section">
+      <h3>Recommended items</h3>
+      <div class="recommended-grid">
+        <div class="recommended-card">
+          <img src="image/cloth/1.jpg" alt="T-shirt">
+          <div class="price-row">
+            <span>$10.50</span>
+            <small>USA</small>
+          </div>
+          <h4>Casual t-shirts with multiple colors</h4>
+          <p>Comfort fit, breathable cotton</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/cloth/7.jpg" alt="Blazer">
+          <div class="price-row">
+            <span>$32.00</span>
+            <small>Italy</small>
+          </div>
+          <h4>Men’s suit blazer coat</h4>
+          <p>Perfect for office and events</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/cloth/5.jpg" alt="Bag">
+          <div class="price-row">
+            <span>$34.00</span>
+            <small>Spain</small>
+          </div>
+          <h4>Shoulder bag blue</h4>
+          <p>Premium vegan leather finish</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/cloth/6.jpg" alt="Wallet">
+          <div class="price-row">
+            <span>$99.00</span>
+            <small>France</small>
+          </div>
+          <h4>Leather wallet</h4>
+          <p>RFID blocking technology</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/cloth/4.jpg" alt="Jeans">
+          <div class="price-row">
+            <span>$9.00</span>
+            <small>Turkey</small>
+          </div>
+          <h4>Men’s jeans shorts</h4>
+          <p>Denim, 70% cotton</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/tech/5.jpg" alt="Headset">
+          <div class="price-row">
+            <span>$8.99</span>
+            <small>China</small>
+          </div>
+          <h4>Headphone for gaming</h4>
+          <p>Immersive surround sound</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/tech/8.jpg" alt="Smartwatch">
+          <div class="price-row">
+            <span>$10.30</span>
+            <small>Korea</small>
+          </div>
+          <h4>Smartwatch color modern</h4>
+          <p>Water resistant, LTE-ready</p>
+        </div>
+        <div class="recommended-card">
+          <img src="image/cloth/3.jpg" alt="Pot">
+          <div class="price-row">
+            <span>$90.30</span>
+            <small>India</small>
+          </div>
+          <h4>Ankara mud each for men</h4>
+          <p>Handmade leather material</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <h3>Our extra services</h3>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://img.freepik.com/free-photo/production-plant_53876-78293.jpg" alt="Industry">
+          <div class="service-overlay">
+            <div class="service-icon"><i class="fas fa-search"></i></div>
+            <h4>Source from industry hubs</h4>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://img.freepik.com/free-photo/close-up-fabric-color-samples_23-2148820645.jpg" alt="Customize">
+          <div class="service-overlay">
+            <div class="service-icon"><i class="fas fa-sliders-h"></i></div>
+            <h4>Customize your products</h4>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://img.freepik.com/free-photo/airplane-taking-off-airport_1112-285.jpg" alt="Shipping">
+          <div class="service-overlay">
+            <div class="service-icon"><i class="fas fa-play"></i></div>
+            <h4>Fast shipping by ocean or air</h4>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://img.freepik.com/free-photo/man-checking-factory_53876-13806.jpg" alt="Inspection">
+          <div class="service-overlay">
+            <div class="service-icon"><i class="fas fa-search-plus"></i></div>
+            <h4>Product monitoring & inspection</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="region-section">
+      <h3>Suppliers by region</h3>
+      <div class="region-grid">
+        <div class="region-card">
+          <div>
+            <span>Arabic Emirates</span>
+            <small>Dubaï</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>Australia</span>
+            <small>Melbourne</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>United States</span>
+            <small>New York</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>Russia</span>
+            <small>Moscow</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>Italy</span>
+            <small>Rome</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>Denmark</span>
+            <small>Copenhagen</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>France</span>
+            <small>Paris</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="region-card">
+          <div>
+            <span>Germany</span>
+            <small>Berlin</small>
+          </div>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <div>
+        <h3>Subscribe on our newsletter</h3>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+      </div>
+      <div class="newsletter-input">
+        <input type="email" placeholder="Email">
+        <button>Subscribe</button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h4>Brand</h4>
+        <p>Best information about the company gies here but now lorem ipsum is</p>
+        <div class="app-buttons">
+          <a href="#" class="app-btn"><i class="fab fa-apple"></i> App Store</a>
+          <a href="#" class="app-btn"><i class="fab fa-google-play"></i> Google Play</a>
+        </div>
+      </div>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Find store</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Partnership</h5>
+          <ul>
+            <li><a href="#">Become partner</a></li>
+            <li><a href="#">Affiliate program</a></li>
+            <li><a href="#">Partner care</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Information</h5>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Money refund</a></li>
+            <li><a href="#">Shipping info</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>For users</h5>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">My orders</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Brand | All Rights Reserved.</span>
+      <div>
+        <select>
+          <option>English</option>
+          <option>Deutsch</option>
+          <option>العربية</option>
+        </select>
+        <select>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+        </select>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const targets = document.querySelectorAll(
+        '.product-card img, .home-product-card img, .recommended-card img, .home-products-grid img, .electronics-grid img'
+      );
+      targets.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          window.location.href = 'product_detail.html';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand | Product Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ---------- Top Header ---------- */
+    .top-header {
+      background-color: #0a74da;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      font-size: 13px;
+    }
+
+    .top-left, .top-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-box {
+      background-color: #e6f2ff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box i {
+      color: #0a74da;
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a74da;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 40px;
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      height: 44px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #0a74da;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 14px;
+      height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .search-category {
+      background-color: #f5f5f5;
+      border: 2px solid #0a74da;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      padding: 10px 15px;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      min-width: 140px;
+      height: 100%;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .search-bar button {
+      background-color: #0a74da;
+      color: white;
+      border: 2px solid #0a74da;
+      border-left: none;
+      padding: 10px 25px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #0a74da;
+      transition: all 0.3s;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .icon-item:hover {
+      color: #0056b3;
+      background-color: #f0f7ff;
+    }
+
+    .icon-item i {
+      font-size: 24px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .icon-item span {
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ---------- Menu Bar ---------- */
+    .menu-bar {
+      background-color: #e9f2ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      font-weight: 500;
+      color: #0a74da;
+      font-size: 14px;
+    }
+
+    .menu-left {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .menu-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .menu-bar div,
+    .menu-bar a {
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .menu-bar div:hover,
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-bar .help-item::after {
+      content: ' ▼';
+      font-size: 10px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 20px 0;
+    }
+
+    .breadcrumbs span {
+      color: #0a74da;
+      font-weight: 600;
+    }
+
+    /* Product Layout */
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) 1fr;
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 15px 40px rgba(15,23,42,0.06);
+    }
+
+    .product-main {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 30px;
+    }
+
+    .product-gallery {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .product-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .thumb-list {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .thumb-list img {
+      width: 60px;
+      height: 60px;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .thumb-list img.active,
+    .thumb-list img:hover {
+      border-color: #0a74da;
+    }
+
+    .product-info h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .product-info .availability {
+      color: #10b981;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .price-row strong {
+      font-size: 30px;
+      color: #0f172a;
+    }
+
+    .price-row span {
+      color: #6b7280;
+      text-decoration: line-through;
+    }
+
+    .ship-table {
+      margin: 15px 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .ship-table div {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .ship-table div:nth-child(odd) {
+      background: #f9fafb;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      background: #0a74da;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .btn-outline {
+      border: 1px solid #0a74da;
+      color: #0a74da;
+      background: transparent;
+    }
+
+    .supplier-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 15px 30px rgba(15,23,42,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .supplier-card h3 {
+      font-size: 18px;
+    }
+
+    .supplier-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .supplier-card button {
+      border: 1px solid #d1d5db;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: #f9fafb;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .stat-tile {
+      border: 1px dashed #c7d2fe;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      background: #eef2ff;
+    }
+
+    .tabs {
+      margin-top: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(15,23,42,0.05);
+    }
+
+    .tab-header {
+      display: flex;
+      gap: 20px;
+      padding: 18px 24px;
+      border-bottom: 1px solid #e5e7eb;
+      font-weight: 600;
+    }
+
+    .tab-header span.active {
+      color: #0a74da;
+      border-bottom: 2px solid #0a74da;
+      padding-bottom: 6px;
+    }
+
+    .tab-body {
+      padding: 24px;
+      line-height: 1.7;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .product-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .excerpt-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.05);
+    }
+
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .related-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .related-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: #f3f4f6;
+    }
+
+    .related-products {
+      margin-top: 30px;
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+    }
+
+    .related-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .related-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 15px;
+      background: #f9fafc;
+      text-align: center;
+    }
+
+    .related-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .cta-banner {
+      margin-top: 25px;
+      background: linear-gradient(120deg, #2563eb, #7c3aed);
+      border-radius: 16px;
+      color: white;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .cta-banner button {
+      border: none;
+      background: white;
+      color: #111827;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      padding: 40px 0 20px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .footer-columns h5 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer-columns ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-bottom {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="getted_started.html" class="logo">
+      <div class="logo-box">
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <span class="brand-name">Brand</span>
+    </a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands, and more...">
+      <select class="search-category">
+        <option>All category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home & Garden</option>
+        <option>Sports & Outdoors</option>
+        <option>Beauty & Health</option>
+        <option>Toys & Games</option>
+        <option>Automotive</option>
+        <option>Books & Media</option>
+        <option>Food & Beverages</option>
+        <option>Industrial & Scientific</option>
+      </select>
+      <button><i class="fas fa-search"></i> Search</button>
+    </div>
+    <div class="navbar-right">
+      <a href="#" class="icon-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-comments"></i>
+        <span>Messages</span>
+      </a>
+      <a href="#" class="icon-item">
+        <i class="fas fa-heart"></i>
+        <span>Wishlist</span>
+      </a>
+      <a href="my_cart.html" class="icon-item">
+        <i class="fas fa-shopping-cart"></i>
+        <span>My cart</span>
+      </a>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <div class="menu-left">
+      <a href="catalog.html">All category</a>
+      <div>Hot offers</div>
+      <div>Gift boxes</div>
+      <div>Projects</div>
+      <div>Menu item</div>
+      <div class="help-item">Help</div>
+    </div>
+    <div class="menu-right">
+      <span>English, USD <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
+      <span>Ship to</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" class="flag" alt="Germany Flag">
+      <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+    </div>
+  </div>
+
+  <main class="page-wrapper">
+    <div class="breadcrumbs">
+      Home / Clothing / Men fashion / <span>T-shirts & shirts</span>
+    </div>
+
+    <div class="product-grid">
+      <section>
+        <div class="product-card">
+          <div class="product-main">
+            <div class="product-gallery">
+              <img src="image/cloth/1.jpg" alt="Grey polo shirt">
+              <div class="thumb-list">
+                <img src="image/cloth/1.jpg" class="active" alt="thumb">
+                <img src="image/cloth/7.jpg" alt="thumb">
+                <img src="image/cloth/4.jpg" alt="thumb">
+                <img src="image/cloth/3.jpg" alt="thumb">
+              </div>
+            </div>
+            <div class="product-info">
+              <h1>Men’s Long Sleeve T-shirt Cotton Base Layer Slim Fit</h1>
+              <p class="availability"><i class="fas fa-check-circle"></i> In stock</p>
+              <div class="price-row">
+                <strong>$98.00</strong>
+                <span>$120.00</span>
+              </div>
+              <p>Supplier: Guangzhou Trading LLC | Type: Classic shirts | Material: 100% cotton</p>
+
+              <div class="ship-table">
+                <div><span>Price</span><strong>Negotiable</strong></div>
+                <div><span>Type</span><strong>Classic shirt</strong></div>
+                <div><span>Material</span><strong>100% Cotton</strong></div>
+                <div><span>Customization</span><strong>Customized logo & label</strong></div>
+                <div><span>Protection</span><strong>Refund policy up to 30 days</strong></div>
+                <div><span>Warranty</span><strong>12 months quality warranty</strong></div>
+              </div>
+
+              <div class="cta-row">
+                <button class="btn-primary">Send inquiry</button>
+                <button class="btn-primary btn-outline">Add to cart</button>
+              </div>
+
+              <div class="stat-grid">
+                <div class="stat-tile">
+                  <strong>Free shipping</strong>
+                  <p>On orders over $150</p>
+                </div>
+                <div class="stat-tile">
+                  <strong>Best warranty</strong>
+                  <p>24 months coverage</p>
+                </div>
+                <div class="stat-tile">
+                  <strong>Secure payment</strong>
+                  <p>Verified suppliers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <div class="tab-header">
+            <span class="active">Description</span>
+            <span>Reviews</span>
+            <span>Shipping</span>
+            <span>About seller</span>
+          </div>
+          <div class="tab-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id euismod lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Ut sed arcu at massa sodales blandit. Integer gravida, felis ut semper blandit, velit tellus congue felis, vitae maximus nibh nisl non est.</p>
+            <ul style="margin-top:15px; padding-left:20px;">
+              <li>Fabric: 100% premium cotton, 200gsm</li>
+              <li>Colors available: grey, blue, navy, black</li>
+              <li>Sizes: S - 3XL, tailored fit</li>
+              <li>Packaging: 20 pcs per carton, OEM available</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <aside class="product-sidebar">
+        <div class="supplier-card">
+          <h3>Supplier details</h3>
+          <div class="supplier-meta">
+            <span><i class="fas fa-map-marker-alt"></i> Guangzhou, China</span>
+            <span><i class="fas fa-star"></i> 4.9 rating</span>
+          </div>
+          <button>Seller’s profile</button>
+          <button>Save for later</button>
+        </div>
+
+        <div class="excerpt-card">
+          <h4>You may like</h4>
+          <div class="related-list">
+            <div class="related-item">
+              <img src="image/cloth/7.jpg" alt="Jacket">
+              <div>
+                <strong>Elegant khaki coat</strong>
+                <p>$79.00</p>
+              </div>
+            </div>
+            <div class="related-item">
+              <img src="image/cloth/1.jpg" alt="T shirt">
+              <div>
+                <strong>Blue basic tee</strong>
+                <p>$19.90</p>
+              </div>
+            </div>
+            <div class="related-item">
+              <img src="image/cloth/4.jpg" alt="Jeans">
+              <div>
+                <strong>Classic jeans</strong>
+                <p>$34.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="related-products">
+      <div class="related-header">
+        <h3>Related products</h3>
+        <p>Explore more similar items you might love</p>
+      </div>
+      <div class="related-grid">
+        <div class="related-card">
+          <img src="image/cloth/5.jpg" alt="Bag">
+          <h4>Leather bag for men</h4>
+          <p>$34.00 - $58.00</p>
+        </div>
+        <div class="related-card">
+          <img src="image/tech/5.jpg" alt="Headphones">
+          <h4>Headphones with mic</h4>
+          <p>$8.99</p>
+        </div>
+        <div class="related-card">
+          <img src="image/tech/8.jpg" alt="Watch">
+          <h4>Smartwatch Series 8</h4>
+          <p>$39.90</p>
+        </div>
+        <div class="related-card">
+          <img src="image/tech/3.jpg" alt="Laptop">
+          <h4>Notebook Air 13"</h4>
+          <p>$490.00</p>
+        </div>
+      </div>
+      <div class="cta-banner">
+        <div>
+          <h3>Super discount on more than 100 USD</h3>
+          <p>Have you ever finally just write dummy information for this section.</p>
+        </div>
+        <button>Shop now</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-wrapper">
+      <div class="footer-columns">
+        <div>
+          <h5>Brand</h5>
+          <p>Best information about the company gets here but now lorem ipsum is.</p>
+        </div>
+        <div>
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Find store</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Information</h5>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Money refund</a></li>
+            <li><a href="#">Shipping info</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>For users</h5>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">My orders</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Brand | All Rights Reserved.</span>
+        <span>English · USD</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand | Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- Top Header ---------- */
+    .top-header {
+      background-color: #0a74da;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      font-size: 13px;
+    }
+
+    .top-left, .top-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-box {
+      background-color: #e6f2ff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box i {
+      color: #0a74da;
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a74da;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 40px;
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      height: 44px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #0a74da;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      font-size: 14px;
+      height: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .search-category {
+      background-color: #f5f5f5;
+      border: 2px solid #0a74da;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      padding: 10px 15px;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      min-width: 140px;
+      height: 100%;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .search-bar button {
+      background-color: #0a74da;
+      color: white;
+      border: 2px solid #0a74da;
+      border-left: none;
+      padding: 10px 25px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #0a74da;
+      transition: all 0.3s;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .icon-item:hover {
+      color: #0056b3;
+      background-color: #f0f7ff;
+    }
+
+    .icon-item i {
+      font-size: 24px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .icon-item span {
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ---------- Menu Bar ---------- */
+    .menu-bar {
+      background-color: #e9f2ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      font-weight: 500;
+      color: #0a74da;
+      font-size: 14px;
+    }
+
+    .menu-left {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .menu-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .menu-bar div,
+    .menu-bar a {
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .menu-bar div:hover,
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-bar .help-item::after {
+      content: ' ▼';
+      font-size: 10px;
+    }
+
+    .page-wrapper {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 25px;
+      margin: 30px auto;
+    }
+
+    .filter-panel,
+    .results-panel,
+    .newsletter-card,
+    footer {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(15,23,42,0.06);
+    }
+
+    .filter-panel {
+      padding: 24px;
+      height: fit-content;
+    }
+
+    .filter-panel h3 {
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .filter-block {
+      margin-bottom: 24px;
+    }
+
+    .filter-block h4 {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .filter-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .filter-list label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-range input {
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    .results-panel {
+      padding: 24px;
+    }
+
+    .results-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar-left span {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .toggle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      background: white;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: #0a74da;
+    }
+
+    .toggle-btn.active {
+      background: #0a74da;
+      color: white;
+      border-color: #0a74da;
+    }
+
+    .results-sort select {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      background: #f9fafc;
+    }
+
+    .list-view .list-card {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) 120px 160px;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .list-view .list-card:first-child {
+      border-top: none;
+    }
+
+    .list-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #f9fafc;
+    }
+
+    .list-card h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .list-card p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .rating {
+      color: #f59e0b;
+      font-size: 13px;
+    }
+
+    .list-card .price {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .list-card .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid #0a74da;
+      background: transparent;
+      color: #0a74da;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn.fill {
+      background: #0a74da;
+      color: white;
+    }
+
+    .grid-view {
+      display: none;
+    }
+
+    .grid-view.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .grid-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 16px;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .grid-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .grid-card h4 {
+      font-size: 15px;
+    }
+
+    .grid-card .price {
+      font-weight: 700;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 26px;
+    }
+
+    .pagination button {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      background: white;
+      cursor: pointer;
+    }
+
+    .pagination button.active {
+      background: #0a74da;
+      color: white;
+      border-color: #0a74da;
+    }
+
+    .newsletter-card {
+      margin: 30px auto 40px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .newsletter-input {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-input input {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      min-width: 250px;
+    }
+
+    .newsletter-input button {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: none;
+      background: #0a74da;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 40px 0 20px;
+      margin-bottom: 30px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .footer-columns h5 {
+      margin-bottom: 10px;
+    }
+
+    .footer-columns ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+        <a href="getted_started.html" class="logo">
+          <div class="logo-box">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <span class="brand-name">Brand</span>
+        </a>
+        <div class="search-bar">
+          <input type="text" placeholder="Search for products, brands, and more...">
+          <select class="search-category">
+            <option>All category</option>
+            <option>Electronics</option>
+            <option>Fashion</option>
+            <option>Home & Garden</option>
+            <option>Sports & Outdoors</option>
+            <option>Beauty & Health</option>
+            <option>Toys & Games</option>
+            <option>Automotive</option>
+            <option>Books & Media</option>
+            <option>Food & Beverages</option>
+            <option>Industrial & Scientific</option>
+          </select>
+          <button><i class="fas fa-search"></i> Search</button>
+        </div>
+        <div class="navbar-right">
+          <a href="#" class="icon-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="icon-item">
+            <i class="fas fa-comments"></i>
+            <span>Messages</span>
+          </a>
+          <a href="#" class="icon-item">
+            <i class="fas fa-list"></i>
+            <span>Orders</span>
+          </a>
+          <a href="my_cart.html" class="icon-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>My cart</span>
+          </a>
+        </div>
+      </div>
+    
+      <!-- Menu Bar -->
+      <div class="menu-bar">
+        <div class="menu-left">
+          <a href="catalog.html">All category</a>
+          <div>Hot offers</div>
+          <div>Gift boxes</div>
+          <div>Projects</div>
+          <div>Menu item</div>
+          <div class="help-item">Help</div>
+        </div>
+        <div class="menu-right">
+          <span>English, USD <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
+          <span>Ship to</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" class="flag" alt="Germany Flag">
+          <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+        </div>
+      </div>
+    
+  <main class="page-wrapper">
+    <div class="catalog-layout">
+      <aside class="filter-panel">
+        <h3>Category</h3>
+        <ul class="filter-list" style="margin-bottom:18px;">
+          <li><a href="#" style="color:#0a74da;font-weight:600;">Smartphones</a></li>
+          <li><a href="#">Laptops</a></li>
+          <li><a href="#">Cameras</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Smart home</a></li>
+        </ul>
+
+        <div class="filter-block">
+          <h4>Brands</h4>
+          <ul class="filter-list">
+            <li><label><input type="checkbox" checked> Garlox</label></li>
+            <li><label><input type="checkbox"> Mirco</label></li>
+            <li><label><input type="checkbox"> LXi</label></li>
+            <li><label><input type="checkbox"> K-Teq</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-block">
+          <h4>Price range</h4>
+          <div class="price-range">
+            <input type="range" min="50" max="1000" value="400">
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span>$50</span>
+              <span>$1000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-block">
+          <h4>Features</h4>
+          <ul class="filter-list">
+            <li><label><input type="checkbox"> 64 MP camera</label></li>
+            <li><label><input type="checkbox" checked> AMOLED display</label></li>
+            <li><label><input type="checkbox"> 5G support</label></li>
+            <li><label><input type="checkbox"> Wireless charging</label></li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="results-panel">
+        <div class="results-toolbar">
+          <div class="toolbar-left">
+            <strong>12,765 items found</strong>
+            <span>Sorted by <b>Best match</b></span>
+          </div>
+          <div class="view-toggle">
+            <div class="results-sort">
+              <select>
+                <option>Best match</option>
+                <option>Lowest price</option>
+                <option>Highest price</option>
+              </select>
+            </div>
+            <button class="toggle-btn active" data-view="list"><i class="fas fa-bars"></i></button>
+            <button class="toggle-btn" data-view="grid"><i class="fas fa-th-large"></i></button>
+          </div>
+        </div>
+
+        <div class="list-view" id="listView">
+          <!-- sample cards -->
+        </div>
+
+        <div class="grid-view" id="gridView">
+          <!-- sample grid cards -->
+        </div>
+
+        <div class="pagination">
+          <button>&laquo;</button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>&raquo;</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="newsletter-card">
+      <div>
+        <h3>Subscribe to our newsletter</h3>
+        <p>Get daily news on latest drops from favorite manufacturers worldwide.</p>
+      </div>
+      <div class="newsletter-input">
+        <input type="email" placeholder="Email">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="page-wrapper">
+      <div class="footer-columns">
+        <div>
+          <h5>Brand</h5>
+          <p>Best information about the company gets here but now lorem ipsum is.</p>
+        </div>
+        <div>
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Find store</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Information</h5>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Money refund</a></li>
+            <li><a href="#">Shipping info</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>For users</h5>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">My orders</a></li>
+            <li><a href="#">Wishlist</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Get app</h5>
+          <ul>
+            <li><a href="#">App Store</a></li>
+            <li><a href="#">Google Play</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Brand | All Rights Reserved.</span>
+        <span>English · USD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: 'Garlox iPhone 13 Mini (2020) 128GB - Coral',
+        price: '$999.00',
+        rating: '★★★★☆ 4.8',
+        stock: '99 pieces available',
+        info: 'Shipping: Free · Delivery: 1-3 days',
+        img: 'image/tech/1.jpg'
+      },
+      {
+        name: 'Garlox GR 12 Action Camera - Black',
+        price: '$540.00',
+        rating: '★★★★☆ 4.2',
+        stock: '64 pieces available',
+        info: 'Shipping: $25 · Delivery: 4-7 days',
+        img: 'image/tech/2.jpg'
+      },
+      {
+        name: 'Garlox MaxBook Pro 15" Core i7',
+        price: '$849.00',
+        rating: '★★★★★ 4.9',
+        stock: '21 pieces available',
+        info: 'Shipping: $15 · Delivery: 3-5 days',
+        img: 'image/tech/3.jpg'
+      },
+      {
+        name: 'Garlox Air Pods Max - Silver',
+        price: '$299.00',
+        rating: '★★★★☆ 4.3',
+        stock: '150 pieces available',
+        info: 'Shipping: $10 · Delivery: 2-4 days',
+        img: 'image/tech/9.jpg'
+      },
+      {
+        name: 'Garlox Watch Series 8 - Graphite',
+        price: '$459.00',
+        rating: '★★★★☆ 4.5',
+        stock: '40 pieces available',
+        info: 'Shipping: Free · Delivery: 1-3 days',
+        img: 'image/tech/8.jpg'
+      },
+      {
+        name: 'Garlox DSLR 500X Camera - Black',
+        price: '$639.00',
+        rating: '★★★★☆ 4.6',
+        stock: '32 pieces available',
+        info: 'Shipping: Free · Delivery: 2-5 days',
+        img: 'image/tech/6.jpg'
+      }
+    ];
+
+    const listContainer = document.getElementById('listView');
+    const gridContainer = document.getElementById('gridView');
+
+    products.forEach(product => {
+      const listCard = document.createElement('div');
+      listCard.className = 'list-card';
+      listCard.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <div>
+          <h4>${product.name}</h4>
+          <p>${product.info}</p>
+          <div class="rating">${product.rating}</div>
+        </div>
+        <div>
+          <div class="price">${product.price}</div>
+          <small>${product.stock}</small>
+        </div>
+        <div class="actions">
+          <button class="btn fill" onclick="window.location.href='product_detail.html'">View details</button>
+          <button class="btn" onclick="window.location.href='my_cart.html'">Add to cart</button>
+        </div>
+      `;
+      listContainer.appendChild(listCard);
+
+      const gridCard = document.createElement('div');
+      gridCard.className = 'grid-card';
+      gridCard.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h4>${product.name}</h4>
+        <div class="price">${product.price}</div>
+        <small>${product.stock}</small>
+        <button class="btn fill" style="width:100%;" onclick="window.location.href='product_detail.html'">See details</button>
+      `;
+      gridContainer.appendChild(gridCard);
+    });
+
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const listView = document.getElementById('listView');
+    const gridView = document.getElementById('gridView');
+
+    const setView = (view) => {
+      if (view === 'grid') {
+        listView.style.display = 'none';
+        gridView.classList.add('active');
+      } else {
+        listView.style.display = 'block';
+        gridView.classList.remove('active');
+      }
+      toggleButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
+    };
+
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => setView(btn.dataset.view));
+    });
+
+    // default to list view
+    setView('list');
+  </script>
+</body>
+</html>
+
